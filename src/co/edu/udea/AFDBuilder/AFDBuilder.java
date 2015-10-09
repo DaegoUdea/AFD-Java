@@ -1,4 +1,4 @@
-package AFDBuilder;
+package co.edu.udea.AFDBuilder;
 
 public class AFDBuilder implements AbstractAFDBuilder {
 

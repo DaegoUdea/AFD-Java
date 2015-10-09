@@ -1,4 +1,4 @@
-package practice1afd;
+package co.edu.udea.practice1afd;
 
 public class MainClass {
 

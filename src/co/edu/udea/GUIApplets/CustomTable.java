@@ -1,4 +1,4 @@
-package GUIApplets;
+package co.edu.udea.GUIApplets;
 
 import java.awt.*;
 import java.util.LinkedList;

@@ -1,7 +1,7 @@
-package practice1afd;
+package co.edu.udea.practice1afd;
 
-import AFDBuilder.*;
-import GUIApplets.*;
+import co.edu.udea.AFDBuilder.*;
+import co.edu.udea.GUIApplets.*;
 import java.awt.*;
 import java.io.*;
 import java.util.logging.*;
@@ -18,7 +18,7 @@ public class UserFrame extends javax.swing.JFrame {
         DefaultListCellRenderer listRenderer = (DefaultListCellRenderer) symbolList.getCellRenderer();
         listRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         this.setPreferredSize(new Dimension(800, 600));
-        ImageIcon icon = new ImageIcon(getClass().getResource("/IMG/logo.gif"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/co/edu/udea/IMG/logo.gif"));
         this.setIconImage(icon.getImage());
         pack();
     }
