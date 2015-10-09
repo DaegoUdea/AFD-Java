@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Daego_000/Documents/NetBeansProjects/Practice1AFD/src/practice1afd/UserFrame.java</file>
-            <file>file:/C:/Users/Daego_000/Documents/NetBeansProjects/Practice1AFD/src/GUIApplets/CustomTable.java</file>
+            <file>file:/C:/Users/Daego_000/Documents/NetBeansProjects/Practice1AFD/src/co/edu/udea/practice1afd/UserFrame.java</file>
+            <file>file:/C:/Users/Daego_000/Documents/NetBeansProjects/Practice1AFD/src/co/edu/udea/practice1afd/MainClass.java</file>
+            <file>file:/C:/Users/Daego_000/Documents/NetBeansProjects/Practice1AFD/src/co/edu/udea/AFDBuilder/AbstractAFDBuilder.java</file>
+            <file>file:/C:/Users/Daego_000/Documents/NetBeansProjects/Practice1AFD/src/co/edu/udea/AFDBuilder/AFDBuilder.java</file>
+            <file>file:/C:/Users/Daego_000/Documents/NetBeansProjects/Practice1AFD/src/co/edu/udea/AFDBuilder/AFDDirector.java</file>
+            <file>file:/C:/Users/Daego_000/Documents/NetBeansProjects/Practice1AFD/src/co/edu/udea/GUIApplets/CustomTable.java</file>
         </group>
     </open-files>
 </project-private>

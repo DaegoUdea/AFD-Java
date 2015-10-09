@@ -1,4 +1,4 @@
-package co.edu.udea.practice1afd;
+package co.edu.udea.Main;
 
 import co.edu.udea.AFDBuilder.*;
 import co.edu.udea.GUIApplets.*;
