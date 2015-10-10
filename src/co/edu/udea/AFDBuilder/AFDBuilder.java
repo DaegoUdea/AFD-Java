@@ -3,7 +3,9 @@ package co.edu.udea.AFDBuilder;
 public class AFDBuilder implements AbstractAFDBuilder {
 
     private String code;
-
+    
+    // Función con la cual se inicia la construcción del codigo del autómata.
+    // esta función crea inicialmente la interfase grafica del programa.
     public void beginClass(String className) {
 
         code = "import java.awt.*;\n"
@@ -87,6 +89,7 @@ public class AFDBuilder implements AbstractAFDBuilder {
                 +"\t\t\t\t switch (currentState) {\n";
     }
 
+    //Función con la cual se añaden los casos de transición del autómata.
     public void addCase(int state, int[] transitions, String[] symbols) {
         code = code + "\t\t\t\t\t case " + state + ": \n"
                 + "\t\t\t\t\t\t switch(sequence.charAt(i)){ \n";
@@ -104,6 +107,7 @@ public class AFDBuilder implements AbstractAFDBuilder {
                 + "\t\t\t\t\t\t break; \n";
     }
 
+    //Función que cierra la creación de casos y el ciclo que las controla.
     public void endCases() {
         code = code + "\t\t\t\t\t default: \n"
                 + "\t\t\t\t\t\t currentState = -1; \n"
@@ -114,6 +118,7 @@ public class AFDBuilder implements AbstractAFDBuilder {
                 + "\t\t } \n";
     }
 
+    //Función que crea las condiciones con las cuales se aceptan las secuencias del automata.
     public void makeValidation(int[] validStates) {
         code = code + "\t\t public boolean isValid(){ \n";
         for (int i = 0; i < validStates.length; i++) {
@@ -125,6 +130,7 @@ public class AFDBuilder implements AbstractAFDBuilder {
                 + "\t\t } \n";
     }
 
+    //Función que retorna el código fuente del programa.
     public String getCode() {
         code = code + "\t}\n"
                 + "}";

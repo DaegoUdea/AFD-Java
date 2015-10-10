@@ -7,16 +7,19 @@ public class AFDDirector {
     private int[][] transitions;
     private int[] validStates;
     
+    //Constructor
     public AFDDirector(AbstractAFDBuilder builder) {
         this.builder = builder;
     }
 
+    //Función que detecta el tipo de instancia con la cual se creará el autómata. 
     public void buildAFD(String className) {
         if (builder instanceof AFDBuilder) {
             startAFDBuilder(className);
         }
     }
     
+    //Función con la cual se obtienen los datos necesarios para la creación del autómata.
     public void setData(int maxState, String[] symbols, int[][] transitions, int[] validStates){
         this.maxState = maxState;
         this.symbols = symbols;
@@ -24,6 +27,7 @@ public class AFDDirector {
         this.validStates = validStates;
     }
     
+    //Función que crea el autómata mediante la instancia de la clase AFDBuilder.
     private void startAFDBuilder(String className){
             AFDBuilder concreteBuilder = (AFDBuilder)builder;            
             concreteBuilder.beginClass(className);
@@ -36,6 +40,7 @@ public class AFDDirector {
             builder = concreteBuilder;
     }
     
+    //Función que retorna el código del programa.
     public String getProgramCode(){
         return builder.getCode();
     }

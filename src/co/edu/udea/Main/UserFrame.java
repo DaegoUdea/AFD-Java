@@ -193,10 +193,11 @@ public class UserFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Evento el cual genera el archivo en java del autómata.
     private void makeProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeProgramActionPerformed
         if (customTable != null) {
             JFileChooser fileChooser = new JFileChooser();
-            FileNameExtensionFilter filter = new FileNameExtensionFilter("Java File","java");
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Java File", "java");
             fileChooser.setFileFilter(filter);
             File file;
             FileOutputStream out = null;
@@ -209,11 +210,11 @@ public class UserFrame extends javax.swing.JFrame {
                     filePath = filePath.replaceAll(file.getName(), "");
                     fileName = getRightFileName(file.getName());
                     filePath = filePath + fileName + ".java";
-                    
+
                     if (!file.exists()) {
                         file = new File(filePath);
-                    }   
-                    
+                    }
+
                     int stateCount = customTable.getStateCount();
                     String[] symbols = customTable.getSymbols();
                     int[][] transitions = customTable.getTransitions();
@@ -249,20 +250,12 @@ public class UserFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_makeProgramActionPerformed
 
-    private String getRightFileName(String fileName){
-        String rightName = fileName.replaceAll("\\s", "");
-        rightName = rightName.replaceAll(".java", "");
-        rightName = rightName.replaceAll("[\\.]", "");
-        rightName = rightName.replaceAll("[\\(]", "");
-        rightName = rightName.replaceAll("[\\)]", "");
-        rightName = rightName.substring(0, 1).toUpperCase() + rightName.substring(1);
-        return rightName;
-    }
-    
+    //Evento el cual cierra el programa.
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(1);
     }//GEN-LAST:event_exitButtonActionPerformed
 
+    //Evento el cual crea la tabla del autómata.
     private void makeTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeTableButtonActionPerformed
         int stateCount;
         int symbolCount;
@@ -285,6 +278,7 @@ public class UserFrame extends javax.swing.JFrame {
         pack();
     }//GEN-LAST:event_makeTableButtonActionPerformed
 
+    //Evento el cual añade un símbolo de entrada del autómata.
     private void addSymbolButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSymbolButtonActionPerformed
         String symbol = symbolChar.getText();
         if (symbol.equalsIgnoreCase("") || symbol.length() > 1) {
@@ -303,6 +297,7 @@ public class UserFrame extends javax.swing.JFrame {
         symbolChar.requestFocus();
     }//GEN-LAST:event_addSymbolButtonActionPerformed
 
+    //Evento el cual borra un símbolo de entrada del autómata.
     private void deleteSymbolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSymbolsButtonActionPerformed
         DefaultListModel modelList = (DefaultListModel) symbolList.getModel();
         int size = modelList.getSize();
@@ -319,16 +314,30 @@ public class UserFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_deleteSymbolsButtonActionPerformed
 
+    //Evento el cual controla que la entrada de símbolos del autómata sean carácteres.
     private void symbolCharKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_symbolCharKeyTyped
         if (symbolChar.getText().length() >= 1) {
             symbolChar.setText("");
         }
     }//GEN-LAST:event_symbolCharKeyTyped
 
+    //--
     private void symbolCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_symbolCharActionPerformed
         addSymbolButtonActionPerformed(evt);
     }//GEN-LAST:event_symbolCharActionPerformed
 
+    //Función que genera un nombre valido para el archivo java.
+    private String getRightFileName(String fileName) {
+        String rightName = fileName.replaceAll("\\s", "");
+        rightName = rightName.replaceAll(".java", "");
+        rightName = rightName.replaceAll("[\\.]", "");
+        rightName = rightName.replaceAll("[\\(]", "");
+        rightName = rightName.replaceAll("[\\)]", "");
+        rightName = rightName.substring(0, 1).toUpperCase() + rightName.substring(1);
+        return rightName;
+    }
+
+    //Función que verifica si un símbolo de entrada ya existe en la lista de símbolos.
     private boolean alreadyInList(String symbol) {
         DefaultListModel listModel = (DefaultListModel) symbolList.getModel();
         return listModel.contains(symbol);

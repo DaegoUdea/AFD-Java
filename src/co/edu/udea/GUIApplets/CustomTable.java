@@ -9,18 +9,23 @@ public class CustomTable extends JPanel{
     private JTextField[][] dataTable;
     private JCheckBox[] rowValidation;
 
+    //Constructor
     public CustomTable(int rows, int cols) {       
         setLayout(new GridBagLayout());           
         makeTable(rows+1, cols+1);
         setSize(this.getPreferredSize());
     }
     
+    //Función que escribe en la primer fila de la tabla los nombres de los
+    // símbolos de entrada del autómata.
     public void setSymbols(String[] symbols){
         for (int i = 1; i < symbols.length + 1; i++){
             dataTable[0][i].setText(symbols[i-1]);
         }
     }
     
+    // Función que crea los componentes graficos de la tabla 
+    // con sus respectivas dimensiones.
     private void makeTable(int rows, int cols){
         dataTable = new JTextField[rows][cols];
         rowValidation = new JCheckBox[rows - 1];
@@ -65,6 +70,7 @@ public class CustomTable extends JPanel{
         }        
     }
 
+    // Función que retorna un arreglo con los símbolos de entrada del autómata.
     public String[] getSymbols(){
         String[] symbols = new String[dataTable[0].length - 1];
         for (int i = 1; i < dataTable[0].length; i++){
@@ -73,10 +79,13 @@ public class CustomTable extends JPanel{
         return symbols;
     }
     
+    // Función que retorna la cantidad de estados del autómata.
     public int getStateCount(){
         return dataTable.length - 1;
     }
     
+    // Función que retorna una matriz con las transiciones del autómata
+    // ingresadas por el usuario.
     public int[][] getTransitions(){
         int[][] transitions = new int[dataTable.length-1][dataTable[0].length-1];
         int maxState = getStateCount();
@@ -95,6 +104,8 @@ public class CustomTable extends JPanel{
         return transitions;
     }
     
+    // Función que retorna un arreglo con los estados de aceptación
+    // ingresados por el usuario.
     public int[] getValidStates(){
         LinkedList queue = new LinkedList();
         int validStates[];
